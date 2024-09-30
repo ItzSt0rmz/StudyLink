@@ -28,7 +28,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    background: var(-hidden-color);
+    background: var(--hidden-color);
     box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(102, 126, 173, 0.1) 0px 0.075rem 0.175rem;
     height: 100%;
     width: 100%;
@@ -56,7 +56,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: var(--accent-light);
-    font-size: 2rem;
+    font-size: 2vw;
     overflow-wrap: normal;
     color: var(--text-color);
     align-self: flex-start;

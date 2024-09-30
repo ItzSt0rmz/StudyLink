@@ -26,45 +26,46 @@
 #main {
     display: flex;
     flex-direction: row;
-    flex-grow: 1;
     gap: 1rem;
-    justify-content: space-between;
+    justify-content: space-around;
     height:100vh;
+    margin: 1rem;
 }
 
 #info-left {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width:40%;
+    width:60vw;
+    gap:1rem;
 }
 
 #picture {
-    margin: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 }
 
 #description {
-    margin: 2rem;
     display: flex;
     flex-direction: column;
 }
 
 #about-me-header {
-    height:20%;
+    height:10vh;
     background-color: var(--accent-light);
     color: var(--text-color);
-    text-align: center;
-    text-justify: center;
-    font-size: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-size: 4vw;
 }
 
 #about-me-info {
     background-color: var(--accent-dark);
     color: var(--text-color);
-    font-size: 3rem;
+    font-size: 2vw;
     overflow: scroll;
     padding: 1rem;
     justify-content: center;
@@ -75,38 +76,70 @@
     flex-direction: column;
     justify-content: space-between;
     gap:2rem;
-    margin: 2rem;
 }
 
 #calender-header {
     display: flex;
-    background-color: var(--hidden-color);
     flex-direction: row;
     justify-content: flex-start;
-    gap:5rem;
+    gap: 3.5rem;
     height: 15%;
 }
 
 #month-disp {
-    background-color: black;
+    background-color: var(--accent-light);
+    width: 30vw;
+    min-width: 250px;
 }
 
 #month-selection-arrows {
-    background-color: black;
     display:flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-start;
+    gap:2rem;
 }
 
 #month-selection-back {
-    background-color: black;
+    background-color: var(--accent-light);
+    width: 10vw;
+    max-width: 100px;
 }
 
 #month-selection-forward {
-    background-color: black;
+    background-color: var(--accent-light);
+    width: 10vw;
+    max-width: 100px;
 }
 
 #calender-grid {
-    height:80%;
-    background-color: black;
+    background-color: var(--accent-light);
+    display: grid;
+    
+    gap: 1rem;
+    padding: 1rem;
+
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    grid-auto-rows: 130px;
+}
+
+.calender-element {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: var(--calender-empty);
+    box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(102, 126, 173, 0.1) 0px 0.075rem 0.175rem;
+    border-radius: 1rem;
+    transition: all 500ms;
+    overflow: hidden;
+    position: relative;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.calender-element:hover {
+    box-shadow: rgba(3, 8, 20, 0.1) 0px 0.35rem 1.175rem, rgba(2, 8, 20, 0.1) 0px 0.175rem 0.5rem;
+    transform: translateY(-3px) scale(1.1);
+    cursor: pointer;
 }
