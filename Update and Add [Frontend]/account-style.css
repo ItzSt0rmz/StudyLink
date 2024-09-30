@@ -1,0 +1,112 @@
+.generic{
+    box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(102, 126, 173, 0.1) 0px 0.075rem 0.175rem;
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem;
+    transition: all 500ms;
+    overflow: hidden;
+    position: relative;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.empty{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.debug{
+    background-color: var(--hidden-color);
+}
+
+#main {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    gap: 1rem;
+    justify-content: space-between;
+    height:100vh;
+}
+
+#info-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width:40%;
+}
+
+#picture {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#description {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+#about-me-header {
+    height:20%;
+    background-color: var(--accent-light);
+    color: var(--text-color);
+    text-align: center;
+    text-justify: center;
+    font-size: 4rem;
+}
+
+#about-me-info {
+    background-color: var(--accent-dark);
+    color: var(--text-color);
+    font-size: 3rem;
+    overflow: scroll;
+    padding: 1rem;
+    justify-content: center;
+}
+
+#calender {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap:2rem;
+    margin: 2rem;
+}
+
+#calender-header {
+    display: flex;
+    background-color: var(--hidden-color);
+    flex-direction: row;
+    justify-content: flex-start;
+    gap:5rem;
+    height: 15%;
+}
+
+#month-disp {
+    background-color: black;
+}
+
+#month-selection-arrows {
+    background-color: black;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#month-selection-back {
+    background-color: black;
+}
+
+#month-selection-forward {
+    background-color: black;
+}
+
+#calender-grid {
+    height:80%;
+    background-color: black;
+}
