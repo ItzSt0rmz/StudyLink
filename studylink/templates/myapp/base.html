@@ -1,48 +1,218 @@
 <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Library</title>
+        <style>
+          #header {
+              width: 100%;
+              height: 6rem;
+              background-color: #22223B;
+              border-color: #22223B;
 
-<style>
-  .hello-msg{
-    margin-right: 60px;
-  }
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+          }
 
-  .logOutButton{
-    margin-left: 20px;
-  }
+          #left-header {
+              display: flex;
+              justify-content: space-between;
+              margin: 25px;
+              width: 15rem;
+              align-items: center;
+          }
 
-  .nav-item{
-    margin-right: 30px;
-  }
+          #logo {
+              width: 75px;
+              height: 75px;
+              position: relative;
+              background-color: #4A4E69;
+              border-radius: 2rem;
 
-</style>
+              background-size: cover;
+              background-position: center;
+              background-repeat: no-repeat;
+          }
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-        StudyLink
-    </title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  rel="stylesheet" />
-  </head>
-  <body>
+          #title {
+              color: #F2E9E4;
+              display:flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 2rem;
+              color: #F2E9E4;
+          }
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">StudyLink</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link">|</a>
-          </li>
-        </ul>
+          #right-header {
+              display: flex;
+              justify-content: space-around;
+              width: 15rem;
+              align-items: center;
+              padding: 15px;
+              margin: 10px;
+              gap: 1rem;
+          }
+
+          #setLoc {
+              display:flex;
+              flex-direction: row;
+              justify-content: space-between;
+              align-items: center;
+              gap: 1rem;
+          }
+
+          #location {
+              width: 50px;
+              height: 50px;
+              background-color: #4A4E69;
+              border-radius: 2rem;
+
+              background-size: cover;
+              background-position: center;
+              background-repeat: no-repeat;
+          }
+
+          #settings {
+              width: 50px;
+              height: 50px;
+              background-color: #4A4E69;
+              border-radius: 2rem;
+
+              background-size: cover;
+              background-position: center;
+              background-repeat: no-repeat;
+          }
+
+          #account {
+              display:flex;
+              flex-direction: row;
+              justify-content: space-between;
+              align-items: center;
+              gap:1rem;
+          }
+
+          #account-name {
+              font-size: 1rem;
+              color: #F2E9E4;
+          }
+
+          #account-logo {
+              width: 75px;
+              height: 75px;
+              background-color: #4A4E69;
+              border-radius: 2rem;
+              overflow: hidden;
+          }
+
+          #search {
+              width: 80%;
+              height: 3rem;
+              margin: 3rem;
+              border-radius: 3rem;
+              background-color: #9A8C98;
+          }
+
+          #grid {
+              display: grid;
+              align-self: stretch;
+              
+              gap: 4rem;
+              margin: 2rem;
+
+              grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+              grid-auto-rows: 240px;
+          }
+
+          @import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
+
+          body {
+              background: #4A4E69;
+              color: #000000;
+              font-family: 'Noto Sans', sans-serif;
+              display: flex;
+              align-items: center;
+              flex-direction: column;
+              margin: 0;
+              padding: 0;
+          }
+
+          .card {
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-end;
+              background: #353535;
+              box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(102, 126, 173, 0.1) 0px 0.075rem 0.175rem;
+              height: 100%;
+              width: 100%;
+              border-radius: 1rem;
+              transition: all 500ms;
+              overflow: hidden;
+              position: relative;
+
+              background-size: cover;
+              background-position: center;
+              background-repeat: no-repeat;
+          }
+
+          .card:hover {
+              box-shadow: rgba(3, 8, 20, 0.1) 0px 0.35rem 1.175rem, rgba(2, 8, 20, 0.1) 0px 0.175rem 0.5rem;
+              transform: translateY(-3px) scale(1.1);
+              cursor: pointer;
+          }
+
+          .name-plate {
+              display: flex;
+              height: 25%;
+              width: 50%;
+              position: relative;
+              justify-content: center;
+              align-items: center;
+              background-color: #9A8C98;
+              font-size: 2rem;
+              color: #F2E9E4;
+              align-self: flex-start;
+              border-top-right-radius: 1rem;
+          }
+
+          .buttonLogos {
+            scale: 70%;
+            display: block;
+            position: relative;
+            cursor: pointer;
+          }
+
+          .accountLogo {
+            display: block;
+            position: relative;
+            cursor: pointer;
+            top: -15px;
+            left: -15px;
+          }
+          
+
+        </style>
+    </head>
+    <body> 
+        {% load static %}
+      <div id="header">
+        <div id="left-header">
+            <div id="logo"></div>
+            <a id="title" href="{% url 'home' %}">StudyLink</a>
+        </div>
+        <div id="right-header">
+            <div id="setLoc">
+                <a id="location" href="{% url 'userProfile' %}"><img class="buttonLogos" src="{% static 'location_50by50.png' %}"/></a>
+                <a id="settings" href="{% url 'userProfile' %}"><img class="buttonLogos" src="{% static 'settings_50by50.png' %}"/></a>
+            </div>
+            <div id="account">
+                <div id="account-name">{{request.user}}</div>
+                <div id="account-logo"><img class="accountLogo" src="{{ user.profile.avatar.url }} "/></div>
+            </div>
+        </div>
       </div>
+        {% block content %}
 
-      <span class="hello-msg">Hello</span>
-      <span><a class = "logoutButton">Logout</a></span>
-
-    </nav>
-    <div class="container">{% block content %} {% endblock %}</div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" ></script>
-  </body>
+        {% endblock %}
+    </body>
 </html>

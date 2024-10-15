@@ -1,5 +1,13 @@
 {% extends "myapp/base.html" %}
 
 {%block content%}
-<h1>HI</h1>
+
+<div id="search"></div>
+
+<div id="grid">
+{% for x in users %}
+    <div class="card" style="background-image: url('{{x.profile.avatar.url}}')"><div class="name-plate">{{x.username}}</div></div>
+{% endfor %}
+</div>
+
 {%endblock%}
