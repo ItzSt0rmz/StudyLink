@@ -32,7 +32,13 @@
                     <label class="small mb-1">Bio:</label> {{ profile_form.bio }}
                 </div>
                 <div>
-                    {{classes_form.bioTaken}}
+                    <h2> Classes Taken </h2>
+                    {% for field in classes_form %}
+                        <div class="form-group">
+                            <label>{{ field.label }}</label>
+                            {{ field }}
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
             <br><br>
