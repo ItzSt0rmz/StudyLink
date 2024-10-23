@@ -5,7 +5,7 @@
     @import url('media/css/header-style.css');
 </style>
     <div class="row my-3 p-3">
-        <img class="rounded-circle account-img" src="{{ user.profile.avatar.url }} " style="cursor: pointer;"/>
+        <img class="rounded-circle account-img" src="{{ profile_owner.profile.avatar.url }} " style="cursor: pointer;"/>
     </div>
     {% if user_form.errors %}
         <div class="alert alert-danger alert-dismissible" role="alert">
@@ -20,20 +20,13 @@
         </div>
     {% endif %}
     <div class="form-content">
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
             <div class="form-row">
                 <div class="col-md-5">
                     <div class="form-group">
                         <label class="small mb-1">Username:</label>
-                            {{ user_form.username }}
+                            {{ profile_owner.username }}
                     </div>
-                    <div class="form-group">
-                        <hr>
-                        <label class="small mb-1">Change Avatar:</label>
-                        {{ profile_form.avatar }}
-                    </div>
-                    <label class="small mb-1">Bio:</label> {{ profile_form.bio }}
+                    <label class="small mb-1">Bio:</label> {{ profile_owner.profile.bio }}
                 </div>
                 <div>
                     <h2> Classes Taken </h2>
@@ -46,10 +39,6 @@
                 </div>
             </div>
             <br><br>
-            <button type="submit" class="btn btn-dark btn-lg">Save Changes</button>
-            <button type="reset" class="btn btn-dark btn-lg">Reset</button>
-            <button class="btn btn-dark btn-lg" url><a href="{% url 'logout' %}">Log Out</a></button>
-        </form>
     </div>
     <br>
 {% endblock content %}

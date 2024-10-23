@@ -8,7 +8,7 @@
 
 <div id="grid">
 {% for x in users %}
-    <div class="card" style="background-image: url('{{x.profile.avatar.url}}')"><div class="name-plate">{{x.username}}</div></div>
+    <div class="card" style="background-image: url('{{x.profile.avatar.url}}')"><div class="name-plate"><a href="{% url 'profile' username=x.username %}">{{x.username}}</a></div></div>
 {% endfor %}
 </div>
 

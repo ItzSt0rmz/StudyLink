@@ -1,31 +1,27 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html>
     <head>
         <meta charset="utf-8">
         <title>Library</title>
         <style>
-            @import url('media/css/base.css');
-            @import url('media/css/header-style.css');
-            @import url('media/css/account-style.css');
+            @import url("{% static 'css/base.css' %}");
+            @import url("{% static 'css/header-style.css' %}");
         </style>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body> 
-        {% load static %}
       <div id="header">
         <div id="left-header">
-            <div id="logo"></div>
+            <div id="logo"><img src="{% static 'studylink.png' %}"/></div>
             <a id="title" href="{% url 'home' %}">StudyLink</a>
         </div>
-        <div id="right-header">
-            <div id="setLoc">
-                <a id="location" href="{% url 'userProfile' %}"><img class="buttonLogos" src="{% static 'location_50by50.png' %}"/></a>
-                <a id="settings" href="{% url 'userProfile' %}"><img class="buttonLogos" src="{% static 'settings_50by50.png' %}"/></a>
-            </div>
-            <div id="account">
-                <div id="account-name">{{request.user}}</div>
-                <div id="account-logo"><img class="accountLogo" src="{{ user.profile.avatar.url }} "/></div>
-            </div>
+        <div id="left-header">
+                <a id="settings" href="{% url 'userProfile' %}"><img src="{% static 'location_50by50.png' %}"/></a>
+                <a id="settings" href="{% url 'userProfile' %}"><img src="{% static 'settings_50by50.png' %}"/></a>
+                <t>{{ user.username }}</t>
+                <div id="logo"><img src="{{ user.profile.avatar.url }}"/></div>
         </div>
       </div>
         {% block content %}

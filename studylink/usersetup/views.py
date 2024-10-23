@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateUserForm
 from django.contrib import messages
+from django.shortcuts import get_object_or_404
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -53,7 +54,7 @@ def logOutUser(request):
     return redirect('login')
 
 @login_required
-def profile(request):
+def editProfile(request):
     if request.method == 'POST':
         user_form = UpdateUserForm(request.POST, instance=request.user)
         profile_form = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
@@ -76,3 +77,17 @@ def profile(request):
 @login_required(login_url='login')
 def searchUsers(request):
     return render(request, "users/user_search.html", {})
+
+@login_required(login_url='login')
+def profile(request, username=None):
+      if username:
+        profile_owner = get_object_or_404(User, username=username)
+
+      else:
+        profile_owner = request.user
+
+      args1 = {
+        'profile_owner': profile_owner,
+      }
+      
+      return render(request, 'users/profile_view.html', args1)
