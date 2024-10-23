@@ -70,7 +70,7 @@ def editProfile(request):
     else:
         user_form = UpdateUserForm(instance=request.user)
         profile_form = UpdateProfileForm(instance=request.user.profile)
-        classes_taken_form = ClassesTakenForm(request.POST, instance=request.user.profile)
+        classes_taken_form = ClassesTakenForm(instance=request.user.profile)
 
     return render(request, 'users/profile.html', {'user_form': user_form, 'profile_form': profile_form, 'classes_form': classes_taken_form})
 
